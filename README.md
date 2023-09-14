@@ -1,2 +1,2 @@
 # Audio_emotion_detection_app
-![rutuja](https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80)
+![rutuja]![Screenshot 2023-09-14 150429](https://github.com/RutujaChauhan/Audio_emotion_detection_app/assets/95647723/1f6ae1e2-b22c-4f39-a21b-dd20ed18c7d9)
