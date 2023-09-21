@@ -3,4 +3,3 @@ numpy
 sklearn
 librosa
 tensorflow
-pickle
