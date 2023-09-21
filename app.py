@@ -8,8 +8,9 @@ import soundfile as sf
 from PIL import Image
 
 # Load the trained model
-
-audio_model = pd.read_pickle("audio_detectionModel.pkl")
+with open("audio_detectionModel.pkl", 'rb') as m:
+    audio_model = pickle.loads(m.read())
+#audio_model = pd.read_pickle("audio_detectionModel.pkl")
 image = Image.open(
     "image.png",
 )
