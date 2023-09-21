@@ -11,7 +11,7 @@ from PIL import Image
 
 audio_model = pd.read_pickle("audio_detectionModel.pkl")
 image = Image.open(
-    "image.png",
+    "C:\\Users\\rutuj\\OneDrive\\Desktop\\Desktop\\audio_processing\\app1\\image.png",
 )
 
 
@@ -54,45 +54,44 @@ def predict_emotion(audio_features):
 
 # Streamlit UI
 
-st.title("Audio Emotion Detection App ")
-st.image(
-    image,
-    width=300,
-)
-st.write("Record or Upload an audio file to detect the emotion.")
+st.title(":violet[Audio Emotion Detection App] ")
+st.subheader(":orange[✏️Rutuja]")
+st.image(image, width=300)
+st.write(":blue[Record or Upload an audio file to detect the emotion.]")
 
 
 # Option to record audio
 recorded_audio = None
 recording = False
-if st.button("Record Audio"):
+if st.button(":blue[Record Audio]"):
     recording = not recording
 
 if recording:
-    st.write("Recording... (Click again to stop)")
+    st.write(":blue[Recording... (Click again to stop)]")
 
 if not recording and recorded_audio is not None:
     with open("temp_audio.wav", "wb") as audio_file:
         audio_file.write(recorded_audio)
         st.audio(audio_file, format="mp3/wav", start_time=0)
 
-    st.write("Processing...")
+    st.write(":blue[Processing...]")
     audio_features = extract_features("temp_audio.wav")
 
     if audio_features is not None:
         emotion = predict_emotion(audio_features)
         if emotion is not None:
-            st.success(f"Emotion Detected: {emotion}")
+            st.success(f":blue[Emotion Detected: {emotion}]")
 
-uploaded_file = st.file_uploader("Choose an audio file...", type=["wav", "mp3"])
+uploaded_file = st.file_uploader(":blue[Choose an audio file...]", type=["wav", "mp3"])
 
 if uploaded_file:
     st.audio(uploaded_file, format="mp3/wav", start_time=0)
 
     if st.button("Detect Emotion"):
-        st.write("Processing...")
+        st.balloons()
+        st.write(":blue[Processing...]")
         audio_features = extract_features(uploaded_file)
         if audio_features is not None:
             emotion = predict_emotion(audio_features)
             if emotion is not None:
-                st.success(f"Emotion Detected: {emotion}")
+                st.success(f":blue[Emotion Detected: {emotion}]", icon="✅")
