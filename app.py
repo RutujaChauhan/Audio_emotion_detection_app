@@ -102,7 +102,7 @@ def predict_emotion(audio_features):
 
 # Streamlit UI
 
-st.title(":violet[Audio Emotion Detection App] ")
+st.title(":violet[Audio Emotion Detection App]")
 st.subheader(":orange[✏️Rutuja]")
 st.image(image, width=300)
 st.write(":blue[Record or Upload an audio file to detect the emotion.]")
