@@ -49,7 +49,16 @@ from PIL import Image
 #     st.button("Click me")
 # Load the trained model
 
-audio_model = pd.read_pickle("audio_detectionModel.pkl")
+# audio_model = pd.read_pickle("audio_detectionModel.pkl")
+
+try:
+    audio_model = pd.read_pickle("audio_detectionModel.pkl")
+    # Perform operations on the loaded data here
+except FileNotFoundError:
+    print("The 'audio_detectionModel.pkl' file was not found.")
+except Exception as e:
+    print(f"An error occurred while reading the pickle file: {str(e)}")
+
 image = Image.open(
     "image.png",
 )
