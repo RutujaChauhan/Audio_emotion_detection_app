@@ -2,6 +2,7 @@ import streamlit as st
 import pickle5 as pickle
 import librosa
 import numpy as np
+import numba
 import pandas as pd
 import pyaudio
 import soundfile as sf
