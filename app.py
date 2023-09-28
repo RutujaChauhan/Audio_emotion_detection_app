@@ -102,10 +102,10 @@ def predict_emotion(audio_features):
 
 # Streamlit UI
 
-st.title(":violet[Audio Emotion Detection App]")
-st.subheader(":orange[✏️Rutuja]")
+st.title("Audio Emotion Detection App")
+st.subheader("✏️Rutuja")
 st.image(image, width=300)
-st.write(":blue[Record or Upload an audio file to detect the emotion.]")
+st.write("Record or Upload an audio file to detect the emotion.")
 
 # Option to record audio
 recorded_audio = None
@@ -114,31 +114,31 @@ if st.button(":blue[Record Audio]"):
     recording = not recording
 
 if recording:
-    st.write(":blue[Recording... (Click again to stop)]")
+    st.write("Recording... (Click again to stop)")
 
 if not recording and recorded_audio is not None:
     with open("temp_audio.wav", "wb") as audio_file:
         audio_file.write(recorded_audio)
         st.audio(audio_file, format="mp3/wav", start_time=0)
 
-    st.write(":blue[Processing...]")
+    st.write("Processing...")
     audio_features = extract_features("temp_audio.wav")
 
     if audio_features is not None:
         emotion = predict_emotion(audio_features)
         if emotion is not None:
-            st.success(f":blue[Emotion Detected: {emotion}]")
+            st.success(f"Emotion Detected: {emotion}")
 
-uploaded_file = st.file_uploader(":blue[Choose an audio file...]", type=["wav", "mp3"])
+uploaded_file = st.file_uploader("Choose an audio file...", type=["wav", "mp3"])
 
 if uploaded_file:
     st.audio(uploaded_file, format="mp3/wav", start_time=0)
 
     if st.button("Detect Emotion"):
         st.balloons()
-        st.write(":blue[Processing...]")
+        st.write("Processing...")
         audio_features = extract_features(uploaded_file)
         if audio_features is not None:
             emotion = predict_emotion(audio_features)
             if emotion is not None:
-                st.success(f":blue[Emotion Detected: {emotion}]", icon="✅")
+                st.success(f"Emotion Detected: {emotion}", icon="✅")
