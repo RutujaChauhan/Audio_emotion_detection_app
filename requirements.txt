@@ -5,3 +5,4 @@ librosa
 tensorflow
 pyaudio
 scikit-learn
+pickle
