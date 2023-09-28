@@ -51,9 +51,8 @@ from PIL import Image
 
 audio_model = pd.read_pickle("audio_detectionModel.pkl")
 image = Image.open(
-    "image.png",
+    "C:\\Users\\rutuj\\OneDrive\\Desktop\\Desktop\\audio_processing\\app1\\image.png",
 )
-
 
 # Define the emotion labels based on your encoding
 emotion_labels = [
@@ -91,14 +90,13 @@ def predict_emotion(audio_features):
         st.error(f"Error predicting emotion: {str(e)}")
         return None
 
-    
+
 # Streamlit UI
 
 st.title(":violet[Audio Emotion Detection App] ")
 st.subheader(":orange[✏️Rutuja]")
 st.image(image, width=300)
 st.write(":blue[Record or Upload an audio file to detect the emotion.]")
-
 
 # Option to record audio
 recorded_audio = None
