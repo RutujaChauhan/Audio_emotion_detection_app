@@ -1,6 +1,6 @@
 flask
 numpy
-sklearn
+
 librosa
 tensorflow
 pyaudio
