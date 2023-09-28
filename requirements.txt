@@ -2,6 +2,7 @@ flask
 numpy
 librosa
 tensorflow
+keras
 pyaudio
 scikit-learn
 pickle5 
