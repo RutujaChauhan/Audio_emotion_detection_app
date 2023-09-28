@@ -51,7 +51,7 @@ from PIL import Image
 
 audio_model = pd.read_pickle("audio_detectionModel.pkl")
 image = Image.open(
-    "C:\\Users\\rutuj\\OneDrive\\Desktop\\Desktop\\audio_processing\\app1\\image.png",
+    "image.png",
 )
 
 # Define the emotion labels based on your encoding
