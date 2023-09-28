@@ -47,50 +47,50 @@ from PIL import Image
 # if check_password():
 #     st.write("Here goes your normal Streamlit app...")
 #     st.button("Click me")
-#     # Load the trained model
-    
-#     audio_model = pd.read_pickle("audio_detectionModel.pkl")
-#     image = Image.open(
-#         "image.png",
-#     )
-    
-    
-#     # Define the emotion labels based on your encoding
-#     emotion_labels = [
-#         "Angry",
-#         "Disgust",
-#         "Fear",
-#         "Happy",
-#         "Neutral",
-#         "Pleasant surprised",
-#         "Sad",
-#     ]
-    
-    
-#     # Function to extract audio features
-#     def extract_features(audio_file):
-#         try:
-#             audio_data, _ = librosa.load(audio_file, duration=3, offset=0.5)
-#             mfccs = librosa.feature.mfcc(y=audio_data, sr=_, n_mfcc=40)
-#             return mfccs
-#         except Exception as e:
-#             st.error(f"Error processing audio: {str(e)}")
-#             return None
-    
-    
-#     # Function to predict emotion
-#     def predict_emotion(audio_features):
-#         try:
-#             audio_features = np.mean(audio_features, axis=1)
-#             audio_features = audio_features.reshape(1, -1)
-#             prediction = audio_model.predict(audio_features)
-#             # return prediction[0]
-#             predicted_emotion = emotion_labels[np.argmax(prediction)]
-#             return predicted_emotion
-#         except Exception as e:
-#             st.error(f"Error predicting emotion: {str(e)}")
-#             return None
-    
+# Load the trained model
+
+audio_model = pd.read_pickle("audio_detectionModel.pkl")
+image = Image.open(
+    "image.png",
+)
+
+
+# Define the emotion labels based on your encoding
+emotion_labels = [
+    "Angry",
+    "Disgust",
+    "Fear",
+    "Happy",
+    "Neutral",
+    "Pleasant surprised",
+    "Sad",
+]
+
+
+# Function to extract audio features
+def extract_features(audio_file):
+    try:
+        audio_data, _ = librosa.load(audio_file, duration=3, offset=0.5)
+        mfccs = librosa.feature.mfcc(y=audio_data, sr=_, n_mfcc=40)
+        return mfccs
+    except Exception as e:
+        st.error(f"Error processing audio: {str(e)}")
+        return None
+
+
+# Function to predict emotion
+def predict_emotion(audio_features):
+    try:
+        audio_features = np.mean(audio_features, axis=1)
+        audio_features = audio_features.reshape(1, -1)
+        prediction = audio_model.predict(audio_features)
+        # return prediction[0]
+        predicted_emotion = emotion_labels[np.argmax(prediction)]
+        return predicted_emotion
+    except Exception as e:
+        st.error(f"Error predicting emotion: {str(e)}")
+        return None
+
     
 # Streamlit UI
 
