@@ -6,4 +6,5 @@ keras
 pyaudio
 scikit-learn
 pickle5 
-
+Numpy==1.21.4 
+Numba==0.53.0
